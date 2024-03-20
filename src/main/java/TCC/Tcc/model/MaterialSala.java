@@ -1,14 +1,17 @@
 package TCC.Tcc.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name = "MaterialSala")
 public class MaterialSala implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_MATERIALSALA")
+    private Long id_materialsala;
 
     @Column(name = "QT_MATERIAL",nullable = false)
     private Double qt_material;

@@ -18,10 +18,10 @@ public class Log implements Serializable {
     @Column(name = "DT_LOG", nullable = false)
     private LocalDate dt_log;
 
-    @Column(table = "NR_IP", nullable = false)
+    @Column(name = "NR_IP", nullable = false)
     private String nr_ip;
 
-    @Column(table = "DS_ACAO",nullable = false)
+    @Column(name = "DS_ACAO",nullable = false)
     private String ds_acao;
 
     //fk - FORNECE - usuario
