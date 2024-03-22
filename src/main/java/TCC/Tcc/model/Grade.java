@@ -1,5 +1,6 @@
 package TCC.Tcc.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -23,5 +24,62 @@ public class Grade implements Serializable {
     private Long qt_alunos;
 
     //fk - RECEBE - turma
-    //fk - RECEBE - disciplina
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Disciplina disciplina;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Turma turma;
+
+    public Grade() {
+    }
+
+    public Long getId_grade() {
+        return id_grade;
+    }
+
+    public void setId_grade(Long id_grade) {
+        this.id_grade = id_grade;
+    }
+
+    public String getNm_professor() {
+        return nm_professor;
+    }
+
+    public void setNm_professor(String nm_professor) {
+        this.nm_professor = nm_professor;
+    }
+
+    public Long getNr_cargahr() {
+        return nr_cargahr;
+    }
+
+    public void setNr_cargahr(Long nr_cargahr) {
+        this.nr_cargahr = nr_cargahr;
+    }
+
+    public Long getQt_alunos() {
+        return qt_alunos;
+    }
+
+    public void setQt_alunos(Long qt_alunos) {
+        this.qt_alunos = qt_alunos;
+    }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
+    }
 }

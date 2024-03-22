@@ -1,10 +1,12 @@
 package TCC.Tcc.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
 
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "Usuario")
@@ -33,7 +35,86 @@ public class Usuario implements Serializable {
     @Column(name = "DS_FUNCAO")
     private String ds_funcao;
 
-    //fk - RECEBE - log
-    //fk - FORNECE - reserva
+    @OneToMany(mappedBy = "usuario")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<Log> logs;
 
+    @OneToMany(mappedBy = "usuario")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<Reserva> reservas;
+
+    public Usuario() {
+    }
+
+    public Long getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(Long id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+    public String getCd_cpfcnpj() {
+        return cd_cpfcnpj;
+    }
+
+    public void setCd_cpfcnpj(String cd_cpfcnpj) {
+        this.cd_cpfcnpj = cd_cpfcnpj;
+    }
+
+    public String getNm_usuario() {
+        return nm_usuario;
+    }
+
+    public void setNm_usuario(String nm_usuario) {
+        this.nm_usuario = nm_usuario;
+    }
+
+    public LocalDate getDt_nascimento() {
+        return dt_nascimento;
+    }
+
+    public void setDt_nascimento(LocalDate dt_nascimento) {
+        this.dt_nascimento = dt_nascimento;
+    }
+
+    public String getDs_email() {
+        return ds_email;
+    }
+
+    public void setDs_email(String ds_email) {
+        this.ds_email = ds_email;
+    }
+
+    public String getDs_senha() {
+        return ds_senha;
+    }
+
+    public void setDs_senha(String ds_senha) {
+        this.ds_senha = ds_senha;
+    }
+
+    public String getDs_funcao() {
+        return ds_funcao;
+    }
+
+    public void setDs_funcao(String ds_funcao) {
+        this.ds_funcao = ds_funcao;
+    }
+
+    public List<Log> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(List<Log> logs) {
+        this.logs = logs;
+    }
+
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<Reserva> reservas) {
+        this.reservas = reservas;
+    }
 }
