@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -37,7 +36,7 @@ public class Usuario implements Serializable {
 
     @OneToMany(mappedBy = "usuario")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private List<Log> logs;
+    private List<LogUser> logs;
 
     @OneToMany(mappedBy = "usuario")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
@@ -102,11 +101,11 @@ public class Usuario implements Serializable {
         this.ds_funcao = ds_funcao;
     }
 
-    public List<Log> getLogs() {
+    public List<LogUser> getLogs() {
         return logs;
     }
 
-    public void setLogs(List<Log> logs) {
+    public void setLogs(List<LogUser> logs) {
         this.logs = logs;
     }
 

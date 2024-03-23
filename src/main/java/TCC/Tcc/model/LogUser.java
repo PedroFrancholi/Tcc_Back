@@ -4,17 +4,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Log")
-public class Log implements Serializable {
+@Table(name = "LogUser")
+public class LogUser implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_LOG", nullable = false)
-    private Long id_log;
+    @Column(name = "ID_LOGUSER", nullable = false)
+    private Long id_logUser;
 
     @Column(name = "DT_LOG", nullable = false)
     private LocalDate dt_log;
@@ -29,15 +28,15 @@ public class Log implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
 
-    public Log() {
+    public LogUser() {
     }
 
-    public Long getId_log() {
-        return id_log;
+    public Long getId_logUser() {
+        return id_logUser;
     }
 
-    public void setId_log(Long id_log) {
-        this.id_log = id_log;
+    public void setId_logUser(Long id_logUser) {
+        this.id_logUser = id_logUser;
     }
 
     public LocalDate getDt_log() {
