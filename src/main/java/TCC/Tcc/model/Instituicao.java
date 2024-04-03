@@ -2,8 +2,6 @@ package TCC.Tcc.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 
 import java.io.Serializable;
 import java.util.List;
