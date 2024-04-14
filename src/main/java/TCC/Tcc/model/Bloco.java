@@ -3,7 +3,6 @@ package TCC.Tcc.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -21,12 +20,12 @@ public class Bloco implements Serializable {
     @Column(name = "NM_BLOCO", nullable = false)
     private String nm_bloco;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "id_polo", referencedColumnName = "id_polo")
     private Polo polo;
 
     @OneToMany(mappedBy = "bloco")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private List<Sala> salas;
 
     public Bloco() {

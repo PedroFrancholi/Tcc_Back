@@ -1,5 +1,6 @@
 package TCC.Tcc.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
@@ -11,28 +12,28 @@ import java.util.List;
 public class Estado implements Serializable {
 
     @Id
-    @Column(name = "CD_ESTADO", nullable = false)
+    @Column(name = "CD_ESTADO", nullable = false, unique = true)
     private String cd_estado;
 
     @Column(name = "NM_ESTADO", nullable = false)
     private String nm_estado;
 
     @OneToMany(mappedBy = "estado")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private List<Municipio> municipios;
 
     public Estado() {
     }
 
-    public String getCd_estado() {
+    public String getcd_estado() {
         return cd_estado;
     }
 
-    public void setCd_estado(String cd_estado) {
+    public void setcd_estado(String cd_estado) {
         this.cd_estado = cd_estado;
     }
 
-    public String getNm_estado() {
+    public String getnm_estado() {
         return nm_estado;
     }
 

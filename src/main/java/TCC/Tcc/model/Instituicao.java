@@ -1,5 +1,6 @@
 package TCC.Tcc.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
@@ -24,9 +25,8 @@ public class Instituicao implements Serializable {
     @Column(name = "NM_FANTASIA",nullable = false)
     private String nm_fantasia;
 
-    //fk - FORNECE - Polo
     @OneToMany(mappedBy = "instituicao")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private List<Polo> polos;
 
     public Instituicao() {

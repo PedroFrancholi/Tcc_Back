@@ -16,19 +16,19 @@ public class Polo implements Serializable {
     @Column(name = "ID_POLO", nullable = false)
     private Long id_polo;
 
-    @Column(name = "DS_POLO")
-    private String ds_polo;
+    @Column(name = "NM_POLO")
+    private String nm_polo;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "id_instituicao", referencedColumnName = "id_instituicao")
     private Instituicao instituicao;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "id_municipio", referencedColumnName = "id_municipio")
     private Municipio municipio;
 
     @OneToMany(mappedBy = "polo")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private List<Bloco> blocos;
 
     public Polo() {
@@ -42,14 +42,13 @@ public class Polo implements Serializable {
         this.id_polo = id_polo;
     }
 
-    public String getDs_polo() {
-        return ds_polo;
+    public String getNm_polo() {
+        return nm_polo;
     }
 
-    public void setDs_polo(String ds_polo) {
-        this.ds_polo = ds_polo;
+    public void setNm_polo(String nm_polo) {
+        this.nm_polo = nm_polo;
     }
-
     public Instituicao getInstituicao() {
         return instituicao;
     }

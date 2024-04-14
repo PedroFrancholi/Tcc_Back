@@ -19,7 +19,6 @@ public class Material implements Serializable {
     private String ds_material;
 
     @ManyToMany(mappedBy = "materials")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<MaterialSala> materialSalas;
 
     public Material() {

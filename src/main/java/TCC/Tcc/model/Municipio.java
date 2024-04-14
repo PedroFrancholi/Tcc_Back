@@ -20,11 +20,11 @@ public class Municipio implements Serializable {
     private String nm_municipio;
 
     @OneToMany(mappedBy = "municipio")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private List<Polo> polos;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "cd_estado", referencedColumnName = "cd_estado")
     private Estado estado;
 
     public Municipio() {
