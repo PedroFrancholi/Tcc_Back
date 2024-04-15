@@ -1,5 +1,6 @@
 package TCC.Tcc.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
@@ -19,7 +20,7 @@ public class Curso implements Serializable {
     private String ds_curso;
 
     @OneToMany(mappedBy = "curso")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private List<Turma> turmas;
 
     public Curso() {

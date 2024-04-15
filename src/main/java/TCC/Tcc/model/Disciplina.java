@@ -1,5 +1,6 @@
 package TCC.Tcc.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.query.sql.internal.ParameterRecognizerImpl;
@@ -20,7 +21,7 @@ public class Disciplina implements Serializable {
     private String nm_disciplina;
 
     @OneToMany(mappedBy = "disciplina")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private List<Grade> grades;
 
     public Disciplina() {

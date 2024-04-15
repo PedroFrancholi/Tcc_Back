@@ -1,13 +1,10 @@
 package TCC.Tcc.controller;
 
 import TCC.Tcc.model.Curso;
-import TCC.Tcc.model.Material;
 import TCC.Tcc.service.CursoService;
-import TCC.Tcc.service.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

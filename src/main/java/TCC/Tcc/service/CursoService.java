@@ -1,9 +1,7 @@
 package TCC.Tcc.service;
 
 import TCC.Tcc.model.Curso;
-import TCC.Tcc.model.Material;
 import TCC.Tcc.repository.CursoRepository;
-import TCC.Tcc.repository.MaterialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

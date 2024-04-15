@@ -2,7 +2,6 @@ package TCC.Tcc.service;
 
 import TCC.Tcc.model.Instituicao;
 import TCC.Tcc.repository.InstituicaoRepository;
-import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

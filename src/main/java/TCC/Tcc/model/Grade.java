@@ -23,13 +23,12 @@ public class Grade implements Serializable {
     @Column(name = "QT_ALUNOS",nullable = false)
     private Long qt_alunos;
 
-    //fk - RECEBE - turma
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "id_disciplina", referencedColumnName = "id_disciplina")
     private Disciplina disciplina;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "id_turma", referencedColumnName = "id_turma")
     private Turma turma;
 
     public Grade() {

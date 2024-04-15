@@ -19,16 +19,16 @@ public class Turma implements Serializable {
     @Column(name = "DS_TURMA")
     private String ds_turma;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "id_curso", referencedColumnName = "id_curso")
     private Curso curso;
 
     @OneToMany(mappedBy = "turma")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private List<Grade> grades;
 
     @OneToMany(mappedBy = "turma")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private List<Reserva> reservas;
 
     public Turma() {

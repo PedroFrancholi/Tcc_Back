@@ -5,10 +5,8 @@ import TCC.Tcc.service.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.image.ReplicateScaleFilter;
 import java.util.List;
 import java.util.Optional;
 
