@@ -43,7 +43,7 @@ public class MunicipioController {
         Municipio newMunicipio = municipioExiste.get();
         newMunicipio.setNm_municipio(municipio.getNm_municipio());
 
-        return ResponseEntity.status(HttpStatus.OK).body(service.gravaMunicipio(newMunicipio));
+        return ResponseEntity.status(HttpStatus.OK).body(service.alteraMunicipio(newMunicipio));
     }
 
     @DeleteMapping("/{id}")

@@ -19,14 +19,6 @@ public class MunicipioService {
     private MunicipioRepository municipioRepository;
 
     public List<Municipio> listarMunicipios(){
-//        List<Municipio> municipios = municipioRepository.findAll();
-//
-//        for (Municipio municipio : municipios){
-//            municipio.getEstado().getcd_estado();
-//        }
-//
-//        return municipios;
-
         return municipioRepository.findAll();
     }
 
@@ -48,6 +40,10 @@ public class MunicipioService {
         newMunicipio.setEstado(estadoExiste.get());
 
         return municipioRepository.save(newMunicipio);
+    }
+
+    public Object alteraMunicipio(Municipio municipio){
+        return municipioRepository.save(municipio);
     }
 
     public void deleteMunicipio(Optional<Municipio> municipio){

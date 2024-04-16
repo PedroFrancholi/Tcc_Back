@@ -2,7 +2,6 @@ package TCC.Tcc.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cascade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -23,17 +22,17 @@ public class Sala implements Serializable {
     @Column(name = "QT_CAPACVIGILANCIA",nullable = false)
     private Long qt_capacvigilancia;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "id_bloco", referencedColumnName = "id_bloco")
     private Bloco bloco;
 
 
     @ManyToMany(mappedBy = "salas")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private Set<MaterialSala> materialSalas;
 
     @OneToMany(mappedBy = "sala")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
     private List<Reserva> reservas;
 
     public Sala() {

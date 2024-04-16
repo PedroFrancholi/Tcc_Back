@@ -18,7 +18,7 @@ public class Material implements Serializable {
     @Column(name = "DS_MATERIAL", nullable = false)
     private String ds_material;
 
-    @ManyToMany(mappedBy = "materials")
+    @ManyToMany
     private Set<MaterialSala> materialSalas;
 
     public Material() {
