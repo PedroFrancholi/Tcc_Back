@@ -1,6 +1,7 @@
 package TCC.Tcc.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -21,17 +22,25 @@ public class MaterialSala implements Serializable {
     @Column(name = "DS_MATERIALSALA")
     private String ds_materialSala;
 
-    @ManyToMany
-    @JoinTable(name = "MaterialSala_Sala",
-            joinColumns = @JoinColumn(name = "id_materialsala"),
-            inverseJoinColumns = @JoinColumn(name = "id_sala"))
-    private Set<Sala> salas;
+//    @ManyToMany
+//    @JoinTable(name = "MaterialSala_Sala",
+//            joinColumns = @JoinColumn(name = "id_materialsala"),
+//            inverseJoinColumns = @JoinColumn(name = "id_sala"))
+//    private Set<Sala> salas;
 
-    @ManyToMany
-    @JoinTable(name = "MaterialSala_Material",
-            joinColumns = @JoinColumn(name = "id_materialsala"),
-            inverseJoinColumns = @JoinColumn(name = "id_material"))
-    private Set<Material> materials;
+//    @ManyToMany
+//    @JoinTable(name = "MaterialSala_Material",
+//            joinColumns = @JoinColumn(name = "id_materialsala"),
+//            inverseJoinColumns = @JoinColumn(name = "id_material"))
+//    private Set<Material> materials;
+
+    @ManyToOne
+    @JoinColumn(name = "material_id")
+    private Material material;
+
+    @ManyToOne
+    @JoinColumn(name = "sala_id")
+    private Sala sala;
 
     public MaterialSala() {
     }
@@ -60,19 +69,35 @@ public class MaterialSala implements Serializable {
         this.ds_materialSala = ds_materialSala;
     }
 
-    public Set<Sala> getSalas() {
-        return salas;
+//    public Set<Sala> getSalas() {
+//        return salas;
+//    }
+//
+//    public void setSalas(Set<Sala> salas) {
+//        this.salas = salas;
+//    }
+//
+//    public Set<Material> getMaterials() {
+//        return materials;
+//    }
+//
+//    public void setMaterials(Set<Material> materials) {
+//        this.materials = materials;
+//    }
+
+    public Material getMaterial() {
+        return material;
     }
 
-    public void setSalas(Set<Sala> salas) {
-        this.salas = salas;
+    public void setMaterial(Material material) {
+        this.material = material;
     }
 
-    public Set<Material> getMaterials() {
-        return materials;
+    public Sala getSala() {
+        return sala;
     }
 
-    public void setMaterials(Set<Material> materials) {
-        this.materials = materials;
+    public void setSala(Sala sala) {
+        this.sala = sala;
     }
 }

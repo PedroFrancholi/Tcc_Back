@@ -1,5 +1,6 @@
 package TCC.Tcc.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
@@ -18,7 +19,8 @@ public class Material implements Serializable {
     @Column(name = "DS_MATERIAL", nullable = false)
     private String ds_material;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "material")
+    @JsonIgnore
     private Set<MaterialSala> materialSalas;
 
     public Material() {

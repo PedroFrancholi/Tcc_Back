@@ -16,8 +16,11 @@ public class Polo implements Serializable {
     @Column(name = "ID_POLO", nullable = false)
     private Long id_polo;
 
-    @Column(name = "NM_POLO")
+    @Column(name = "NM_POLO", nullable = false)
     private String nm_polo;
+
+    @Column(name = "DS_ENDERECO", nullable = false)
+    private String ds_endereco;
 
     @ManyToOne
     @JoinColumn(name = "id_instituicao", referencedColumnName = "id_instituicao")
@@ -71,5 +74,13 @@ public class Polo implements Serializable {
 
     public void setBlocos(List<Bloco> blocos) {
         this.blocos = blocos;
+    }
+
+    public String getDs_endereco() {
+        return ds_endereco;
+    }
+
+    public void setDs_endereco(String ds_endereco) {
+        this.ds_endereco = ds_endereco;
     }
 }

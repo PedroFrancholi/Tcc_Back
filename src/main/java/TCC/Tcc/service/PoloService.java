@@ -47,6 +47,7 @@ public class PoloService {
 
         Polo newPolo = new Polo();
         newPolo.setNm_polo(polo.getNm_polo());
+        newPolo.setDs_endereco(polo.getDs_endereco());
         newPolo.setMunicipio(municipioExiste.get());
         newPolo.setInstituicao(instituicaoExiste.get());
 

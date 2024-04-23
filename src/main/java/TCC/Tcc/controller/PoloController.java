@@ -42,6 +42,7 @@ public class PoloController {
 
         Polo newPolo = poloExiste.get();
         newPolo.setNm_polo(polo.getNm_polo());
+        newPolo.setDs_endereco(polo.getDs_endereco());
 
         return ResponseEntity.status(HttpStatus.OK).body(service.alteraPolo(newPolo));
     }

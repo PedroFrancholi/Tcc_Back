@@ -27,7 +27,10 @@ public class Sala implements Serializable {
     private Bloco bloco;
 
 
-    @ManyToMany(mappedBy = "salas")
+//    @ManyToMany(mappedBy = "salas")
+//    @JsonIgnore
+//    private Set<MaterialSala> materialSalas;
+    @OneToMany(mappedBy = "sala")
     @JsonIgnore
     private Set<MaterialSala> materialSalas;
 
