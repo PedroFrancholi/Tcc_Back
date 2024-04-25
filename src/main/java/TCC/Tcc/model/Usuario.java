@@ -16,7 +16,7 @@ public class Usuario implements Serializable {
     @Column(name = "ID_USUARIO",nullable = false)
     private Long id_usuario;
 
-    @Column(name = "CD_CPFCNPJ", nullable = false)
+    @Column(name = "CD_CPFCNPJ", nullable = false, unique = true)
     private String cd_cpfcnpj;
 
     @Column(name = "NM_USUARIO", nullable = false)
